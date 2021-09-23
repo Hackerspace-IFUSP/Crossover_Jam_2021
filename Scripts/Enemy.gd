@@ -7,13 +7,16 @@ extends KinematicBody2D
 class_name Enemy
 
 
-# Define os estados que os inimigos podem estar: parado, patrulha, perseguição ou correndo
-enum State { IDLING, PATROLLING, CATCHING, SPRINTING }
+# Define os estados que os inimigos podem estar: parado, patrulha, perseguição ou correndo, pulando
+enum State { IDLING, PATROLLING, CATCHING, SPRINTING, JUMPING }
 
 export var speed: float = 100
 export var moves = []						# array de Vector2 descrevendo o deslocamento da patrulha 
 
+
+var acceleration: Vector2 = Vector2(0, 0)
 export var velocity: Vector2 = Vector2(0, 0)
+
 export var state = State.SPRINTING			# estado
 var patrol: = [ 0, 1, Vector2() ]			# ( pontoAtual, sentido, proximaPosicao )
 
@@ -21,7 +24,7 @@ onready var player = get_node('../Player')
 
 
 func _ready():
-	if self.state == State.PATROLLING: self.startPatrolling()
+	if self.state == State.PATROLLING: self.patrol()
 	pass
 
 func _physics_process(delta):
@@ -33,6 +36,8 @@ func move(delta):
 	if self.state == State.PATROLLING: self.patrolling(delta)
 	if self.state == State.CATCHING: self.catching(delta)
 	
+	self.velocity += self.acceleration * delta
+	
 	var collision = move_and_collide(self.velocity * delta)
 	if collision:
 		self.velocity = velocity.slide(collision.normal)
@@ -40,7 +45,7 @@ func move(delta):
 	pass
 
 # Prepara entidade para começar a patrulhar
-func startPatrolling():
+func patrol():
 	patrol[2] = position + moves[0]
 	self.state = State.PATROLLING
 	pass
@@ -67,6 +72,10 @@ func patrolling(delta):
 # Lógica de perseguição
 func catching(delta):
 	self.velocity = self.position.direction_to(player.global_position) * speed
+	pass
+
+func catch():
+	self.state = State.CATCHING
 	pass
 
 # Faz o inimigo correr

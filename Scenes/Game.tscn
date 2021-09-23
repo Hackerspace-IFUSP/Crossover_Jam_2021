@@ -1,10 +1,11 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Temporários/Laser.png" type="Texture" id=1]
 [ext_resource path="res://Temporários/Body.png" type="Texture" id=2]
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=3]
 [ext_resource path="res://Temporários/point.png" type="Texture" id=4]
 [ext_resource path="res://Scenes/Enemy.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Spider.tscn" type="PackedScene" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 31.8504, 31.8535 )
@@ -121,6 +122,7 @@ func _on_upgrade_dash_body_shape_entered(body_id, body, body_shape, local_shape)
 [node name="Game" type="Node2D"]
 
 [node name="Player" type="KinematicBody2D" parent="."]
+position = Vector2( 96, 104 )
 collision_mask = 31
 script = ExtResource( 3 )
 
@@ -291,6 +293,9 @@ velocity = Vector2( 100, 0 )
 
 [node name="Enemy2" parent="." instance=ExtResource( 5 )]
 position = Vector2( 539.9, 450.709 )
+
+[node name="Miranha" parent="." instance=ExtResource( 6 )]
+position = Vector2( 584, 104 )
 
 [connection signal="timeout" from="Player/dash_timer" to="Player" method="_on_dash_timer_timeout"]
 [connection signal="timeout" from="Player/invincibility_timer" to="Player" method="_on_invincibility_timer_timeout"]
