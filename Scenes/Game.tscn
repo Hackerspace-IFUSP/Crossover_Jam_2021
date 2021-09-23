@@ -285,6 +285,7 @@ shape = SubResource( 7 )
 
 [node name="Enemy" parent="." instance=ExtResource( 5 )]
 position = Vector2( 88, 312 )
+speed = 50.0
 moves = [ Vector2( 500, 0 ), Vector2( 0, 200 ) ]
 
 [connection signal="timeout" from="Player/dash_timer" to="Player" method="_on_dash_timer_timeout"]
