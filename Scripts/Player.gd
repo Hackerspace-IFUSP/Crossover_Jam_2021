@@ -20,14 +20,14 @@ func _ready():
 	pass 
 	
 func _physics_process(delta):
+	
 	##Funções do body 
 	move(delta)
-	
-	
 	
 	##Aplicar mudanças:
 	if changes == true:
 		upgrades()
+	
 	
 	#Funções Dash
 	dash()
@@ -36,7 +36,7 @@ func _physics_process(delta):
 
 	##Funções do laser
 	$laser.look_at(get_global_mouse_position())
-
+	laser()
 
 	##Funções do granadeiro
 
@@ -101,6 +101,13 @@ func dash():
 		$invincibility_timer.start()
 		$dash_timer.start()
 
+
+func laser():
+	if Input.is_action_just_pressed("shoot"):
+		$laser/anim.play("event")
+	
+	elif Input.is_action_just_released("shoot"):
+		$laser/anim.play("event2")
 
 
 func upgrades():
