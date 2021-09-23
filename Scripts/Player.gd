@@ -1,7 +1,11 @@
 extends KinematicBody2D
 
 var velocity = Vector2.ZERO
+
 export var speed = 50
+export var dash_multiplier = 50
+
+var dash_status = false
 
 var boat = false
 var dash = false
@@ -24,9 +28,12 @@ func _physics_process(delta):
 	##Aplicar mudanças:
 	if changes == true:
 		upgrades()
-		
 	
+	#Funções Dash
+	dash()
 	
+
+
 	##Funções do laser
 	$laser.look_at(get_global_mouse_position())
 
@@ -84,6 +91,18 @@ func move(val):
 
 ####
 
+
+
+func dash():
+	if Input.is_action_just_pressed("dash") and dash_status == true:
+		set_collision_mask_bit( 1 , false )
+		move_and_collide( velocity * dash_multiplier )
+		dash_status = false
+		$invincibility_timer.start()
+		$dash_timer.start()
+
+
+
 func upgrades():
 	if boat == true:
 		set_collision_mask_bit( 3 , false )
@@ -93,5 +112,26 @@ func upgrades():
 		set_collision_mask_bit( 4 , false )
 		patch = false
 
+	elif dash == true:
+		dash_status = true ##faz ativar a função do dash pela primeira vez, não precis fazer mais nada 
+		
+	elif laser == true:
+		pass
+	
+	elif bomb == true:
+		pass
+
 
 	changes = false
+
+
+####Timers do dash
+
+func _on_dash_timer_timeout():
+	dash_status = true
+
+
+func _on_invincibility_timer_timeout():
+	set_collision_mask_bit( 1 , true )
+
+###
