@@ -287,6 +287,7 @@ shape = SubResource( 7 )
 position = Vector2( 88, 312 )
 speed = 50.0
 moves = [ Vector2( 500, 0 ), Vector2( 0, 200 ) ]
+velocity = Vector2( 100, 0 )
 
 [node name="Enemy2" parent="." instance=ExtResource( 5 )]
 position = Vector2( 539.9, 450.709 )

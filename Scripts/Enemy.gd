@@ -1,18 +1,21 @@
+# Created on September 22th, 2021 by Ícaro Freire 
+# https://github.com/ivfreire
+
 # Classe que contém variáveis e métodos comuns a todos os inimigos
 
 extends KinematicBody2D
 class_name Enemy
 
 
-# Define os estados que os inimigos podem estar: parado, patrulha ou ataque
-enum State { IDLING, PATROLLING, CATCHING }
+# Define os estados que os inimigos podem estar: parado, patrulha, perseguição ou correndo
+enum State { IDLING, PATROLLING, CATCHING, SPRINTING }
 
 export var speed: float = 100
-export var moves = []					# array de Vector2 descrevendo o deslocamento da patrulha 
+export var moves = []						# array de Vector2 descrevendo o deslocamento da patrulha 
 
-var velocity: Vector2 = Vector2(0, 0)
-var state = State.CATCHING			# estado
-var patrol: = [ 0, 1, Vector2() ]		# ( pontoAtual, sentido, proximaPosicao )
+export var velocity: Vector2 = Vector2(0, 0)
+export var state = State.SPRINTING			# estado
+var patrol: = [ 0, 1, Vector2() ]			# ( pontoAtual, sentido, proximaPosicao )
 
 onready var player = get_node('../Player')
 
@@ -66,6 +69,8 @@ func catching(delta):
 	self.velocity = self.position.direction_to(player.global_position) * speed
 	pass
 
-
-
-
+# Faz o inimigo correr
+func sprint(velocity: Vector2):
+	self.velocity = velocity
+	self.state = State.SPRINTING
+	pass
