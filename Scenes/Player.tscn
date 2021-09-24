@@ -1,0 +1,130 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Temporários/Body.png" type="Texture" id=1]
+[ext_resource path="res://Temporários/Laser.png" type="Texture" id=2]
+[ext_resource path="res://Temporários/point.png" type="Texture" id=3]
+[ext_resource path="res://Scripts/Player.gd" type="Script" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 31.8504, 31.8535 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 18.8954, 3.25718 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "event"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("beam:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 10, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("beam:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 30, 0 ), Vector2( 220, 0 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "event2"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("beam:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 220, 0 ), Vector2( 30, 0 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("beam:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 10, 1 ), Vector2( 1e-05, 1 ) ]
+}
+
+[node name="Player" type="KinematicBody2D"]
+position = Vector2( 96, 104 )
+collision_mask = 31
+script = ExtResource( 4 )
+
+[node name="sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+
+[node name="point" type="Sprite" parent="."]
+position = Vector2( 24, 0 )
+rotation = -1.5708
+texture = ExtResource( 3 )
+
+[node name="shape" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="laser" type="Node2D" parent="."]
+
+[node name="beam" type="Area2D" parent="laser"]
+position = Vector2( 30, 0 )
+scale = Vector2( 1e-05, 1 )
+collision_layer = 32
+collision_mask = 0
+
+[node name="ColorRect" type="ColorRect" parent="laser/beam"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -3.0
+margin_right = 20.0
+margin_bottom = 3.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color( 0.0196078, 0.843137, 0.207843, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="laser/beam"]
+shape = SubResource( 2 )
+
+[node name="Laser" type="Sprite" parent="laser"]
+position = Vector2( 20, 0 )
+rotation = 1.5708
+texture = ExtResource( 2 )
+
+[node name="anim" type="AnimationPlayer" parent="laser"]
+anims/event = SubResource( 3 )
+anims/event2 = SubResource( 4 )
+
+[node name="dash_timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="invincibility_timer" type="Timer" parent="."]
+wait_time = 0.4
+one_shot = true
+
+[connection signal="timeout" from="dash_timer" to="." method="_on_dash_timer_timeout"]
+[connection signal="timeout" from="invincibility_timer" to="." method="_on_invincibility_timer_timeout"]

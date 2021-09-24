@@ -24,6 +24,10 @@ config/name="Crossover_Jam_2021"
 run/main_scene="res://Scenes/Game.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+GAME="*res://Scripts/GAME.gd"
+
 [display]
 
 window/size/width=800
@@ -79,6 +83,7 @@ shoot={
 2d_physics/layer_4="Lake"
 2d_physics/layer_5="Patched"
 2d_physics/layer_6="laser"
+2d_physics/layer_7="Acid"
 
 [physics]
 
