@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://tiles/tree/tree.tscn" type="PackedScene" id=1]
 [ext_resource path="res://tiles/buildings/buildings.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://map_objects/Teleporter.tscn" type="PackedScene" id=4]
 
 [node name="Map8" type="Node2D"]
 
@@ -14,3 +15,11 @@ tile_data = PoolIntArray( 21, 1073741824, 3, 27, 1073741824, 3, 65557, 107374182
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 1454.89, 1779.07 )
+
+[node name="Teleporter" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1179.29, -35.2778 )
+choose_map = 8
+
+[node name="Teleporter2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1474.77, 1703.39 )
+choose_map = 3
