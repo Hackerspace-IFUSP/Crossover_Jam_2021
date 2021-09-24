@@ -8,7 +8,7 @@ class_name Enemy
 
 
 # Define os estados que os inimigos podem estar: parado, patrulha, perseguição ou correndo, pulando
-enum State { IDLING, PATROLLING, CATCHING, SPRINTING, JUMPING }
+enum State { IDLING, PATROLLING, CATCHING, SPRINTING, JUMPING, FLYING }
 
 export var speed: float = 100
 export var moves = []						# array de Vector2 descrevendo o deslocamento da patrulha 
@@ -20,7 +20,7 @@ export var velocity: Vector2 = Vector2(0, 0)
 export var state = State.SPRINTING			# estado
 var patrol: = [ 0, 1, Vector2() ]			# ( pontoAtual, sentido, proximaPosicao )
 
-onready var player = get_node('../Player')
+onready var player = get_parent().get_node('Player')
 
 
 func _ready():
