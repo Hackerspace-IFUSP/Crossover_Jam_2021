@@ -56,6 +56,7 @@ func _on_upgrade_dash_body_shape_entered(body_id, body, body_shape, local_shape)
 [node name="Game" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 56, 112 )
 
 [node name="lake_body" type="StaticBody2D" parent="."]
 position = Vector2( 104, 452.723 )
@@ -163,7 +164,16 @@ position = Vector2( 6.72717, 7.35785 )
 shape = SubResource( 3 )
 
 [node name="WantWant" parent="." instance=ExtResource( 2 )]
-position = Vector2( 392, 192 )
+position = Vector2( 352, 16 )
+
+[node name="WantWant2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 468, 16 )
+
+[node name="WantWant3" parent="." instance=ExtResource( 2 )]
+position = Vector2( 584, 16 )
+
+[node name="WantWant4" parent="." instance=ExtResource( 2 )]
+position = Vector2( 680, 16 )
 
 [connection signal="body_shape_entered" from="upgrade_lake" to="upgrade_lake" method="_on_upgrade_lake_body_shape_entered"]
 [connection signal="body_shape_entered" from="upgrade_patch" to="upgrade_patch" method="_on_upgrade_patch_body_shape_entered"]

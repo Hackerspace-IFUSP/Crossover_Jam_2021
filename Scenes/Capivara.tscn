@@ -6,9 +6,10 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 32, 32 )
 
-[node name="Enemy" type="KinematicBody2D"]
+[node name="Capivara" type="KinematicBody2D"]
 collision_mask = 3
 script = ExtResource( 2 )
+speed = 500.0
 velocity = Vector2( 0, 500 )
 
 [node name="Sprite" type="Sprite" parent="."]
