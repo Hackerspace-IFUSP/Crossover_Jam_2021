@@ -41,6 +41,9 @@ func move(delta):
 	var collision = move_and_collide(self.velocity * delta)
 	if collision:
 		self.velocity = velocity.slide(collision.normal)
+		
+	if self.state != State.IDLING:
+		self.look_at(self.position + self.velocity)
 	
 	pass
 
@@ -54,24 +57,20 @@ func patrol():
 func patrolling(delta):
 	if position.distance_to(patrol[2]) < delta * speed:
 		var next = patrol[0] + patrol[1]
-		
 		if next == moves.size():
 			next -= 1
 			patrol[1] = -1
 		if next < 0:
 			next = 0
 			patrol[1] = 1
-		
 		patrol[0] = next
 		patrol[2] = position + moves[next] * patrol[1]
-	
-	velocity = position.direction_to(patrol[2]) * speed
-	
+	self.velocity = position.direction_to(patrol[2]) * speed
 	pass
 
 # Lógica de perseguição
 func catching(delta):
-	self.velocity = self.position.direction_to(player.global_position) * speed
+	self.velocity = self.position.direction_to(self.player.global_position) * speed
 	pass
 
 func catch():

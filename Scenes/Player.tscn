@@ -5,14 +5,13 @@
 [ext_resource path="res://Temporários/point.png" type="Texture" id=3]
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=4]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 31.8504, 31.8535 )
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 18.8954, 3.25718 )
 
-[sub_resource type="Animation" id=3]
-resource_name = "event"
+[sub_resource type="Animation" id=5]
 length = 0.3
 tracks/0/type = "value"
 tracks/0/path = NodePath("beam:scale")
@@ -39,8 +38,7 @@ tracks/1/keys = {
 "values": [ Vector2( 30, 0 ), Vector2( 220, 0 ) ]
 }
 
-[sub_resource type="Animation" id=4]
-resource_name = "event2"
+[sub_resource type="Animation" id=6]
 length = 0.3
 tracks/0/type = "value"
 tracks/0/path = NodePath("beam:position")
@@ -81,7 +79,7 @@ rotation = -1.5708
 texture = ExtResource( 3 )
 
 [node name="shape" type="CollisionShape2D" parent="."]
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 
 [node name="laser" type="Node2D" parent="."]
 
@@ -108,7 +106,7 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="laser/beam"]
-shape = SubResource( 2 )
+shape = SubResource( 4 )
 
 [node name="Laser" type="Sprite" parent="laser"]
 position = Vector2( 20, 0 )
@@ -116,8 +114,8 @@ rotation = 1.5708
 texture = ExtResource( 2 )
 
 [node name="anim" type="AnimationPlayer" parent="laser"]
-anims/event = SubResource( 3 )
-anims/event2 = SubResource( 4 )
+anims/event = SubResource( 5 )
+anims/event2 = SubResource( 6 )
 
 [node name="dash_timer" type="Timer" parent="."]
 one_shot = true

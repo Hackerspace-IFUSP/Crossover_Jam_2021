@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Scenes/WantWant.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Capivara.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/WantWant.tscn" type="PackedScene" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 21.1299, 20.8621 )
@@ -95,7 +96,7 @@ position = Vector2( 20.2043, 20.7655 )
 shape = SubResource( 1 )
 
 [node name="Ciclistas" type="StaticBody2D" parent="."]
-position = Vector2( 32, 504 )
+position = Vector2( 24, 312 )
 scale = Vector2( 10, 2 )
 collision_layer = 2
 collision_mask = 0
@@ -163,17 +164,12 @@ __meta__ = {
 position = Vector2( 6.72717, 7.35785 )
 shape = SubResource( 3 )
 
-[node name="WantWant" parent="." instance=ExtResource( 2 )]
-position = Vector2( 352, 16 )
+[node name="Capivara" parent="." instance=ExtResource( 2 )]
+position = Vector2( 280, 176 )
+velocity = Vector2( 50, 100 )
 
-[node name="WantWant2" parent="." instance=ExtResource( 2 )]
-position = Vector2( 468, 16 )
-
-[node name="WantWant3" parent="." instance=ExtResource( 2 )]
-position = Vector2( 584, 16 )
-
-[node name="WantWant4" parent="." instance=ExtResource( 2 )]
-position = Vector2( 680, 16 )
+[node name="WantWant" parent="." instance=ExtResource( 3 )]
+position = Vector2( 576, 256 )
 
 [connection signal="body_shape_entered" from="upgrade_lake" to="upgrade_lake" method="_on_upgrade_lake_body_shape_entered"]
 [connection signal="body_shape_entered" from="upgrade_patch" to="upgrade_patch" method="_on_upgrade_patch_body_shape_entered"]
