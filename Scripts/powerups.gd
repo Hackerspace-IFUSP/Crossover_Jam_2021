@@ -1,71 +1,69 @@
-#A code by: KeichiTS - 2021
+#A code by: KeichiTS - 09/2021
 
 extends Area2D
 
-var maps = [
-	"res://Maps/Map1.tscn",
-	"res://Maps/Map2.tscn",
-	"res://Maps/Map3.tscn",
-	"res://Maps/Map4.tscn",
-	"res://Maps/Map5.tscn",
-	"res://Maps/Map6.tscn",
-	"res://Maps/Map7.tscn",
-	"res://Maps/Map8.tscn",
-	"res://Maps/Map9.tscn",
-	"res://Maps/Map10.tscn",
-	"res://Maps/Map11.tscn"
-]
-
-enum { MAP1 , MAP2 , MAP3 , MAP4 , MAP5 , MAP6 , MAP7 , MAP8 , MAP9 , MAP10 , MAP11 , MAP12 }
-export var choose_map = MAP1
-export(int) var map 
-export var spawn_position = Vector2()
+enum {boat,dash,update,laser,bomb}
+export(int, "boat","dash","patch","laser","bomb") var Updates 
 
 func _ready():
-	pass
+	if Updates == 0:
+		$Sprite.show()
+		$Sprite2.hide()
+		$Sprite3.hide()
+		$Sprite4.hide()
+		$Sprite5.hide()
+	if Updates == 1:
+		$Sprite.hide()
+		$Sprite2.show()
+		$Sprite3.hide()
+		$Sprite4.hide()
+		$Sprite5.hide()
+	if Updates == 2:
+		$Sprite.hide()
+		$Sprite2.hide()
+		$Sprite3.show()
+		$Sprite4.hide()
+		$Sprite5.hide()
+	if Updates == 3:
+		$Sprite.hide()
+		$Sprite2.hide()
+		$Sprite3.hide()
+		$Sprite4.show()
+		$Sprite5.hide()
+	if Updates == 4:
+		$Sprite.hide()
+		$Sprite2.hide()
+		$Sprite3.hide()
+		$Sprite4.hide()
+		$Sprite5.show()
+		
+	if Updates == 0 and GAME.boat == true:
+		queue_free()
+	if Updates == 1 and GAME.dash == true:
+		queue_free()
+	if Updates == 2 and GAME.patch == true:
+		queue_free()
+	if Updates == 3 and GAME.laser == true:
+		queue_free()
+	if Updates == 4 and GAME.bomb == true:
+		queue_free()
 
-
-
-func _on_Teleporter_body_shape_entered(body_id, body, body_shape, local_shape):
+func _on_powerups_body_entered(body):
 	if body.name == "Player":
-		if map == 0:
-			GAME.map1 = spawn_position
+		if Updates == 0:
+			body.boat = true
+		if Updates == 1:
+			body.dash = true 
+		if Updates == 2:
+			body.patch = true 
+		if Updates == 3:
+			body.laser = true
+		if Updates == 4:
+			body.bomb = true 
+				
+	
+		queue_free()
 		
-		elif map == 1:
-			GAME.map2 = spawn_position
-			
-		elif map == 2:
-			GAME.map3 = spawn_position
-			
-		elif map == 3:
-			GAME.map4 = spawn_position
-			
-		elif map == 4:
-			GAME.map5 = spawn_position
-
-		elif map == 5:
-			GAME.map6 = spawn_position
-
-		elif map == 6:
-			GAME.map7 = spawn_position
-			
-		elif map == 7:
-			GAME.map8 = spawn_position
-
-		elif map == 8:
-			GAME.map9 = spawn_position
-			
-		elif map == 9:
-			GAME.map10 = spawn_position
-			
-		elif map == 10:
-			GAME.map11 = spawn_position
-			
-			
-		get_tree().change_scene(maps[choose_map])
-		
-
-
 ###################################################
 #     ~ It ain't much, but it's honest work ~     #
 ###################################################

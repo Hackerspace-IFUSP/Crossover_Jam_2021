@@ -1,12 +1,18 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Scenes/WantWant.tscn" type="PackedScene" id=2]
+[ext_resource path="res://map_objects/powerups.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scripts/powerups.gd" type="Script" id=3]
+[ext_resource path="res://Temporários/tringle_green.png" type="Texture" id=4]
+[ext_resource path="res://Temporários/tringle_red.png" type="Texture" id=5]
+[ext_resource path="res://Temporários/tringle_dark_green.png" type="Texture" id=6]
+[ext_resource path="res://Temporários/tringle_cyan.png" type="Texture" id=7]
+[ext_resource path="res://Temporários/tringle_blue.png" type="Texture" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 21.1299, 20.8621 )
 
-[sub_resource type="GDScript" id=2]
+[sub_resource type="GDScript" id=6]
 script/source = "extends Area2D
 
 
@@ -14,44 +20,13 @@ func _ready():
 	pass
 
 
-func _on_upgrade_lake_body_shape_entered(body_id, body, body_shape, local_shape):
+func _on_testport_body_shape_entered(body_id, body, body_shape, local_shape):
 	if body.name == \"Player\":
-		body.boat = true
-		body.changes = true
-		queue_free()
+		get_tree().reload_current_scene()
 "
 
-[sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 7.52362, 6.96442 )
-
-[sub_resource type="GDScript" id=4]
-script/source = "extends Area2D
-
-
-func _ready():
-	pass
-
-func _on_upgrade_patch_body_shape_entered(body_id, body, body_shape, local_shape):
-	if body.name == \"Player\":
-		body.patch = true
-		body.changes = true
-		queue_free()
-"
-
-[sub_resource type="GDScript" id=5]
-script/source = "extends Area2D
-
-
-func _ready():
-	pass
-
-
-func _on_upgrade_dash_body_shape_entered(body_id, body, body_shape, local_shape):
-	if body.name == \"Player\":
-		body.dash = true
-		body.changes = true
-		queue_free()
-"
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 22.2242, 18.1062 )
 
 [node name="Game" type="Node2D"]
 
@@ -113,68 +88,136 @@ __meta__ = {
 position = Vector2( 20.2043, 20.7655 )
 shape = SubResource( 1 )
 
-[node name="upgrade_lake" type="Area2D" parent="."]
-position = Vector2( 208, 468.723 )
-script = SubResource( 2 )
+[node name="testport" type="Area2D" parent="."]
+script = SubResource( 6 )
 
-[node name="ColorRect" type="ColorRect" parent="upgrade_lake"]
-margin_right = 14.0
-margin_bottom = 16.0
-color = Color( 0, 0.905882, 1, 1 )
+[node name="color" type="ColorRect" parent="testport"]
+margin_right = 40.0
+margin_bottom = 40.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="upgrade_lake"]
-position = Vector2( 6.72717, 7.35785 )
-shape = SubResource( 3 )
+[node name="shape" type="CollisionShape2D" parent="testport"]
+position = Vector2( 17.6389, 19.5288 )
+shape = SubResource( 7 )
 
-[node name="upgrade_patch" type="Area2D" parent="."]
-position = Vector2( 168, 468.766 )
-script = SubResource( 4 )
+[node name="powerups" parent="." instance=ExtResource( 2 )]
 
-[node name="ColorRect" type="ColorRect" parent="upgrade_patch"]
-margin_top = -0.33371
-margin_right = 14.0
-margin_bottom = 15.6663
-color = Color( 1, 0.678431, 0, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="powerups2" type="Area2D" parent="."]
+position = Vector2( 120.208, 352.139 )
+script = ExtResource( 3 )
+Updates = 1
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="upgrade_patch"]
-position = Vector2( 6.72717, 7.35785 )
-shape = SubResource( 3 )
+[node name="shape" type="CollisionPolygon2D" parent="powerups2"]
+polygon = PoolVector2Array( -24.0236, 23.8817, -0.0850906, -24.4678, 23.3809, 23.7242 )
 
-[node name="upgrade_dash" type="Area2D" parent="."]
-position = Vector2( 256, 468.766 )
-script = SubResource( 5 )
+[node name="Sprite" type="Sprite" parent="powerups2"]
+scale = Vector2( 0.375, 0.375 )
+texture = ExtResource( 8 )
 
-[node name="ColorRect" type="ColorRect" parent="upgrade_dash"]
-margin_top = -0.33371
-margin_right = 14.0
-margin_bottom = 15.6663
-color = Color( 0.572549, 0, 0.670588, 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="Sprite2" type="Sprite" parent="powerups2"]
+scale = Vector2( 0.375, 0.375 )
+texture = ExtResource( 7 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="upgrade_dash"]
-position = Vector2( 6.72717, 7.35785 )
-shape = SubResource( 3 )
+[node name="Sprite3" type="Sprite" parent="powerups2"]
+scale = Vector2( 0.375, 0.375 )
+texture = ExtResource( 6 )
 
-[node name="WantWant" parent="." instance=ExtResource( 2 )]
-position = Vector2( 352, 16 )
+[node name="Sprite4" type="Sprite" parent="powerups2"]
+scale = Vector2( 0.375, 0.375 )
+texture = ExtResource( 4 )
 
-[node name="WantWant2" parent="." instance=ExtResource( 2 )]
-position = Vector2( 468, 16 )
+[node name="Sprite5" type="Sprite" parent="powerups2"]
+scale = Vector2( 0.375, 0.375 )
+texture = ExtResource( 5 )
 
-[node name="WantWant3" parent="." instance=ExtResource( 2 )]
-position = Vector2( 584, 16 )
+[node name="powerups3" type="Area2D" parent="."]
+position = Vector2( 192.333, 350.725 )
+script = ExtResource( 3 )
+Updates = 2
 
-[node name="WantWant4" parent="." instance=ExtResource( 2 )]
-position = Vector2( 680, 16 )
+[node name="shape" type="CollisionPolygon2D" parent="powerups3"]
+polygon = PoolVector2Array( -24.0236, 23.8817, -0.0850906, -24.4678, 23.3809, 23.7242 )
 
-[connection signal="body_shape_entered" from="upgrade_lake" to="upgrade_lake" method="_on_upgrade_lake_body_shape_entered"]
-[connection signal="body_shape_entered" from="upgrade_patch" to="upgrade_patch" method="_on_upgrade_patch_body_shape_entered"]
-[connection signal="body_shape_entered" from="upgrade_dash" to="upgrade_dash" method="_on_upgrade_dash_body_shape_entered"]
+[node name="Sprite" type="Sprite" parent="powerups3"]
+scale = Vector2( 0.375, 0.375 )
+texture = ExtResource( 8 )
+
+[node name="Sprite2" type="Sprite" parent="powerups3"]
+scale = Vector2( 0.375, 0.375 )
+texture = ExtResource( 7 )
+
+[node name="Sprite3" type="Sprite" parent="powerups3"]
+scale = Vector2( 0.375, 0.375 )
+texture = ExtResource( 6 )
+
+[node name="Sprite4" type="Sprite" parent="powerups3"]
+scale = Vector2( 0.375, 0.375 )
+texture = ExtResource( 4 )
+
+[node name="Sprite5" type="Sprite" parent="powerups3"]
+scale = Vector2( 0.375, 0.375 )
+texture = ExtResource( 5 )
+
+[node name="powerups4" type="Area2D" parent="."]
+position = Vector2( 260.215, 352.139 )
+script = ExtResource( 3 )
+Updates = 3
+
+[node name="shape" type="CollisionPolygon2D" parent="powerups4"]
+polygon = PoolVector2Array( -24.0236, 23.8817, -0.0850906, -24.4678, 23.3809, 23.7242 )
+
+[node name="Sprite" type="Sprite" parent="powerups4"]
+scale = Vector2( 0.375, 0.375 )
+texture = ExtResource( 8 )
+
+[node name="Sprite2" type="Sprite" parent="powerups4"]
+scale = Vector2( 0.375, 0.375 )
+texture = ExtResource( 7 )
+
+[node name="Sprite3" type="Sprite" parent="powerups4"]
+scale = Vector2( 0.375, 0.375 )
+texture = ExtResource( 6 )
+
+[node name="Sprite4" type="Sprite" parent="powerups4"]
+scale = Vector2( 0.375, 0.375 )
+texture = ExtResource( 4 )
+
+[node name="Sprite5" type="Sprite" parent="powerups4"]
+scale = Vector2( 0.375, 0.375 )
+texture = ExtResource( 5 )
+
+[node name="powerups5" type="Area2D" parent="."]
+position = Vector2( 330.926, 353.553 )
+script = ExtResource( 3 )
+Updates = 4
+
+[node name="shape" type="CollisionPolygon2D" parent="powerups5"]
+polygon = PoolVector2Array( -24.0236, 23.8817, -0.0850906, -24.4678, 23.3809, 23.7242 )
+
+[node name="Sprite" type="Sprite" parent="powerups5"]
+scale = Vector2( 0.375, 0.375 )
+texture = ExtResource( 8 )
+
+[node name="Sprite2" type="Sprite" parent="powerups5"]
+scale = Vector2( 0.375, 0.375 )
+texture = ExtResource( 7 )
+
+[node name="Sprite3" type="Sprite" parent="powerups5"]
+scale = Vector2( 0.375, 0.375 )
+texture = ExtResource( 6 )
+
+[node name="Sprite4" type="Sprite" parent="powerups5"]
+scale = Vector2( 0.375, 0.375 )
+texture = ExtResource( 4 )
+
+[node name="Sprite5" type="Sprite" parent="powerups5"]
+scale = Vector2( 0.375, 0.375 )
+texture = ExtResource( 5 )
+
+[connection signal="body_shape_entered" from="testport" to="testport" method="_on_testport_body_shape_entered"]
+[connection signal="body_entered" from="powerups2" to="powerups2" method="_on_powerups_body_entered"]
+[connection signal="body_entered" from="powerups3" to="powerups3" method="_on_powerups_body_entered"]
+[connection signal="body_entered" from="powerups4" to="powerups4" method="_on_powerups_body_entered"]
+[connection signal="body_entered" from="powerups5" to="powerups5" method="_on_powerups_body_entered"]
