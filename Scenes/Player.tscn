@@ -66,7 +66,6 @@ tracks/1/keys = {
 }
 
 [node name="Player" type="KinematicBody2D"]
-position = Vector2( 96, 104 )
 collision_mask = 31
 script = ExtResource( 4 )
 
@@ -124,5 +123,13 @@ one_shot = true
 wait_time = 0.4
 one_shot = true
 
+[node name="bomb_timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="bomb_position" type="Position2D" parent="."]
+position = Vector2( -60, 0 )
+
 [connection signal="timeout" from="dash_timer" to="." method="_on_dash_timer_timeout"]
 [connection signal="timeout" from="invincibility_timer" to="." method="_on_invincibility_timer_timeout"]
+[connection signal="timeout" from="bomb_timer" to="." method="_on_bomb_timer_timeout"]
