@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://tiles/acid/acid.tscn" type="PackedScene" id=1]
 [ext_resource path="res://tiles/buildings/buildings.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Maps/scripts/Map1.gd" type="Script" id=5]
 [ext_resource path="res://tiles/ground.tscn" type="PackedScene" id=6]
 [ext_resource path="res://map_objects/Tree.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/UI.tscn" type="PackedScene" id=8]
 
 [node name="Map5" type="Node2D"]
 position = Vector2( 1, 0 )
@@ -175,3 +176,5 @@ position = Vector2( 8.47559, 485.912 )
 choose_map = 7
 map = 4
 spawn_position = Vector2( 135, 470 )
+
+[node name="UI" parent="." instance=ExtResource( 8 )]

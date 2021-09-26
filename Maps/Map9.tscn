@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://tiles/buildings/buildings.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://map_objects/spiderweb.tscn" type="PackedScene" id=10]
 [ext_resource path="res://map_objects/hard_wall.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Scenes/Spider.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Scenes/UI.tscn" type="PackedScene" id=13]
 
 [node name="Map9" type="Node2D"]
 script = ExtResource( 4 )
@@ -272,3 +273,5 @@ rotation = 3.14159
 collision_layer = 2
 collision_mask = 0
 jumpForce = 3.0
+
+[node name="UI" parent="." instance=ExtResource( 13 )]
