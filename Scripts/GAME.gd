@@ -63,5 +63,10 @@ func reload():
 	laser = false
 	patch = false
 	bomb = false
+	boat_update = false
+	dash_update = false 
+	laser_update = false 
+	patch_update = false 
+	bomb_update = false 
 	yield(get_tree().create_timer(1.0), "timeout")
 	
