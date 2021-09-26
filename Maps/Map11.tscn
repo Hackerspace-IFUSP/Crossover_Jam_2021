@@ -47,7 +47,7 @@ tracks/1/keys = {
 "values": [ true, true ]
 }
 tracks/2/type = "value"
-tracks/2/path = NodePath("Sprite:modulate")
+tracks/2/path = NodePath("CanvasLayer/Control/Sprite:modulate")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/imported = false
@@ -94,7 +94,6 @@ animations = [ {
 } ]
 
 [node name="Map11" type="Node2D"]
-modulate = Color( 0, 0, 0, 1 )
 script = ExtResource( 6 )
 
 [node name="tiles" type="Node2D" parent="."]
@@ -123,6 +122,9 @@ spawn_position = Vector2( 1050, 1800 )
 
 [node name="Player" parent="." instance=ExtResource( 4 )]
 position = Vector2( 1050, 1850 )
+
+[node name="body" parent="Player" index="2"]
+frame = 0
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 current = true
@@ -440,10 +442,21 @@ anims/event = SubResource( 3 )
 
 [node name="Area2D" type="Area2D" parent="."]
 
-[node name="Sprite" type="AnimatedSprite" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="AnimatedSprite" parent="CanvasLayer/Control"]
+modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 260, 125 )
 scale = Vector2( 10, 10 )
 frames = SubResource( 5 )
+frame = 1
 playing = true
 centered = false
 
