@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://tiles/water/water.tscn" type="PackedScene" id=1]
 [ext_resource path="res://tiles/buildings/buildings.tscn" type="PackedScene" id=2]
@@ -9,6 +9,22 @@
 [ext_resource path="res://map_objects/Tree.tscn" type="PackedScene" id=7]
 [ext_resource path="res://map_objects/hard_wall.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/UI.tscn" type="PackedScene" id=9]
+[ext_resource path="res://map_objects/upgrade_sign.tscn" type="PackedScene" id=10]
+
+[sub_resource type="Animation" id=1]
+resource_name = "event"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
+}
 
 [node name="Map10" type="Node2D"]
 script = ExtResource( 5 )
@@ -155,3 +171,13 @@ position = Vector2( 906.203, 623.628 )
 position = Vector2( 799.927, 202.334 )
 
 [node name="UI" parent="." instance=ExtResource( 9 )]
+
+[node name="sign" parent="." instance=ExtResource( 10 )]
+position = Vector2( 560, 704 )
+icon = 4
+
+[node name="sign2" parent="." instance=ExtResource( 10 )]
+position = Vector2( 1144, 232 )
+
+[node name="on_screen" type="AnimationPlayer" parent="."]
+anims/event = SubResource( 1 )

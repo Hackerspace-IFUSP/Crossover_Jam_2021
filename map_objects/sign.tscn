@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://fonts/FreeSans.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://sprites/sign_KeichiTS.png" type="Texture" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+outline_size = 1
+outline_color = Color( 0.0313726, 1, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 61.9268, 36.5211 )
+
+[node name="sign" type="StaticBody2D"]
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = -57.0
+margin_top = -49.0
+margin_right = 57.0
+margin_bottom = 15.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.490196, 0.556863, 0, 1 )
+text = "SPACE"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -17 )
+shape = SubResource( 2 )

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://tiles/buildings/buildings.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
@@ -15,6 +15,32 @@
 [ext_resource path="res://Scenes/Enemy.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Scenes/WantWant.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Scenes/UI.tscn" type="PackedScene" id=15]
+[ext_resource path="res://fonts/FreeSans.ttf" type="DynamicFontData" id=16]
+[ext_resource path="res://sprites/sign_KeichiTS.png" type="Texture" id=17]
+[ext_resource path="res://map_objects/upgrade_sign.tscn" type="PackedScene" id=18]
+
+[sub_resource type="DynamicFont" id=1]
+outline_size = 1
+outline_color = Color( 0.0313726, 1, 0, 1 )
+font_data = ExtResource( 16 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 61.9268, 36.5211 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "event"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
+}
 
 [node name="Map6" type="Node2D"]
 script = ExtResource( 4 )
@@ -174,7 +200,7 @@ map = 5
 spawn_position = Vector2( 1030, 550 )
 
 [node name="powerups" parent="." instance=ExtResource( 5 )]
-position = Vector2( -619.932, -714.616 )
+position = Vector2( -688, -120 )
 Updates = 2
 
 [node name="road_sign" parent="." instance=ExtResource( 11 )]
@@ -226,3 +252,39 @@ state = 2
 position = Vector2( 920, -573.884 )
 
 [node name="UI" parent="." instance=ExtResource( 15 )]
+
+[node name="sign" type="StaticBody2D" parent="."]
+position = Vector2( -704, -192 )
+scale = Vector2( 0.5, 0.5 )
+
+[node name="Sprite" type="Sprite" parent="sign"]
+texture = ExtResource( 17 )
+
+[node name="Label" type="Label" parent="sign"]
+margin_left = -57.0
+margin_top = -49.0
+margin_right = 57.0
+margin_bottom = 15.0
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0.490196, 0.556863, 0, 1 )
+text = "L. CLICK"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="sign"]
+position = Vector2( 0, -17 )
+shape = SubResource( 2 )
+
+[node name="sign" parent="sign" instance=ExtResource( 18 )]
+position = Vector2( 1664, 2176 )
+icon = 1
+
+[node name="sign2" parent="sign" instance=ExtResource( 18 )]
+position = Vector2( 352, 2320 )
+icon = 4
+
+[node name="on_screen" type="AnimationPlayer" parent="."]
+anims/event = SubResource( 3 )

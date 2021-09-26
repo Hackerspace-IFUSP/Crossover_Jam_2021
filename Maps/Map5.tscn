@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://tiles/acid/acid.tscn" type="PackedScene" id=1]
 [ext_resource path="res://tiles/buildings/buildings.tscn" type="PackedScene" id=2]
@@ -8,6 +8,22 @@
 [ext_resource path="res://tiles/ground.tscn" type="PackedScene" id=6]
 [ext_resource path="res://map_objects/Tree.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/UI.tscn" type="PackedScene" id=8]
+[ext_resource path="res://map_objects/upgrade_sign.tscn" type="PackedScene" id=9]
+
+[sub_resource type="Animation" id=1]
+resource_name = "event"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
+}
 
 [node name="Map5" type="Node2D"]
 position = Vector2( 1, 0 )
@@ -178,3 +194,10 @@ map = 4
 spawn_position = Vector2( 135, 470 )
 
 [node name="UI" parent="." instance=ExtResource( 8 )]
+
+[node name="sign" parent="." instance=ExtResource( 9 )]
+position = Vector2( 983.962, 449.064 )
+icon = 2
+
+[node name="on_screen" type="AnimationPlayer" parent="."]
+anims/event = SubResource( 1 )

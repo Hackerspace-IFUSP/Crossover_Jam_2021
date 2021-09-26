@@ -5,7 +5,7 @@ signal finished
 
 ###status dos upgrades 
 var boat = false
-var dash = true
+var dash = false
 var laser = false
 var patch = false
 var bomb = false

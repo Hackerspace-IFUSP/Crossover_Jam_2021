@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://tiles/water/water.tscn" type="PackedScene" id=1]
 [ext_resource path="res://tiles/buildings/buildings.tscn" type="PackedScene" id=2]
@@ -10,6 +10,22 @@
 [ext_resource path="res://Scenes/spawner.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/WantWant.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/UI.tscn" type="PackedScene" id=10]
+[ext_resource path="res://map_objects/upgrade_sign.tscn" type="PackedScene" id=11]
+
+[sub_resource type="Animation" id=1]
+resource_name = "event"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ), Color( 1, 1, 1, 1 ) ]
+}
 
 [node name="Map3" type="Node2D"]
 script = ExtResource( 5 )
@@ -192,14 +208,18 @@ spawn_position = Vector2( 500, 1500 )
 
 [node name="WantWant" parent="." instance=ExtResource( 9 )]
 position = Vector2( 1208, 216 )
-collision_layer = 2
 collision_mask = 1
 speed = 10.0
 
 [node name="WantWant2" parent="." instance=ExtResource( 9 )]
 position = Vector2( 1208, 1304 )
-collision_layer = 2
 collision_mask = 1
 speed = 10.0
 
 [node name="UI" parent="." instance=ExtResource( 10 )]
+
+[node name="sign" parent="." instance=ExtResource( 11 )]
+position = Vector2( 312, 512 )
+
+[node name="on_screen" type="AnimationPlayer" parent="."]
+anims/event = SubResource( 1 )

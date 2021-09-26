@@ -1,9 +1,14 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Temporários/Body.png" type="Texture" id=1]
 [ext_resource path="res://sprites/Light.png" type="Texture" id=2]
+[ext_resource path="res://sfx/laser.wav" type="AudioStream" id=3]
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=4]
 [ext_resource path="res://sprites/robot_assets_Jaspior.png" type="Texture" id=5]
+[ext_resource path="res://sfx/pull_bomb.wav" type="AudioStream" id=6]
+[ext_resource path="res://sfx/died.wav" type="AudioStream" id=7]
+[ext_resource path="res://sfx/flash.wav" type="AudioStream" id=8]
+[ext_resource path="res://sfx/upgraded.wav" type="AudioStream" id=9]
 
 [sub_resource type="AtlasTexture" id=1]
 flags = 4
@@ -135,6 +140,7 @@ frame = 7
 rotation = 3.14159
 scale = Vector2( 0.6, 0.6 )
 frames = SubResource( 3 )
+frame = 1
 playing = true
 
 [node name="sprite" type="Sprite" parent="."]
@@ -242,6 +248,21 @@ collision_mask = 2
 
 [node name="shape" type="CollisionShape2D" parent="hurtbox"]
 shape = SubResource( 8 )
+
+[node name="dash_sfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+
+[node name="died_sfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+
+[node name="pull_bomb_sfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+
+[node name="laser_sfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+
+[node name="upgrade_sfx" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
 
 [connection signal="timeout" from="dash_timer" to="." method="_on_dash_timer_timeout"]
 [connection signal="timeout" from="invincibility_timer" to="." method="_on_invincibility_timer_timeout"]

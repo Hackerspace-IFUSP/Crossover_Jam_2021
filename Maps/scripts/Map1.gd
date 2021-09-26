@@ -3,6 +3,8 @@ extends Node2D
 
 
 func _ready():
+	$on_screen.play("event")
+	
 	if self.name == "Map1":
 		$Player.position = GAME.map1
 	elif self.name == "Map2":
