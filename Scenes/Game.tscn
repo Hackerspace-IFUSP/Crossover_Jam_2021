@@ -8,7 +8,11 @@
 [ext_resource path="res://Temporários/tringle_dark_green.png" type="Texture" id=6]
 [ext_resource path="res://Temporários/tringle_cyan.png" type="Texture" id=7]
 [ext_resource path="res://Temporários/tringle_blue.png" type="Texture" id=8]
+<<<<<<< HEAD
 [ext_resource path="res://Scenes/WantWant.tscn" type="PackedScene" id=9]
+=======
+[ext_resource path="res://Scenes/UI.tscn" type="PackedScene" id=9]
+>>>>>>> refs/remotes/origin/main
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 21.1299, 20.8621 )
@@ -218,8 +222,12 @@ texture = ExtResource( 4 )
 scale = Vector2( 0.375, 0.375 )
 texture = ExtResource( 5 )
 
+<<<<<<< HEAD
 [node name="WantWant" parent="." instance=ExtResource( 9 )]
 position = Vector2( 530.872, 161.443 )
+=======
+[node name="UI" parent="." instance=ExtResource( 9 )]
+>>>>>>> refs/remotes/origin/main
 
 [connection signal="body_shape_entered" from="testport" to="testport" method="_on_testport_body_shape_entered"]
 [connection signal="body_entered" from="powerups2" to="powerups2" method="_on_powerups_body_entered"]

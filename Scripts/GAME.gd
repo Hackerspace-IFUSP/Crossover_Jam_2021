@@ -1,6 +1,8 @@
 #Code by: KeichiTS 09/2021
 extends Node
 
+signal finished
+
 ###status dos upgrades 
 var boat = false
 var dash = false
@@ -53,3 +55,13 @@ var bomb_update = false
 ###################################################
 #               ~ KeichiTS - 2021 ~               #
 ###################################################
+
+func reload():
+	
+	boat = false
+	dash = false
+	laser = false
+	patch = false
+	bomb = false
+	yield(get_tree().create_timer(1.0), "timeout")
+	

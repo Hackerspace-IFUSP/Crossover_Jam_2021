@@ -101,6 +101,7 @@ frame = 7
 rotation = 3.14159
 scale = Vector2( 0.6, 0.6 )
 frames = SubResource( 3 )
+frame = 1
 playing = true
 
 [node name="sprite" type="Sprite" parent="."]
