@@ -43,7 +43,7 @@ state = 0
 position = Vector2( -2.38419e-07, 1.90735e-06 )
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 4 )
-frame = 1
+frame = 2
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -54,3 +54,8 @@ linear_damp = 0.0
 
 [node name="Range" type="CollisionShape2D" parent="Sight"]
 shape = SubResource( 6 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

@@ -63,3 +63,10 @@ func _ready():
 ###################################################
 #               ~ KeichiTS - 2021 ~               #
 ###################################################
+
+
+func _on_bieneos_tree_exited():
+	$on_screen.play("end")
+
+func victory():
+	get_tree().change_scene("res://MainMenu.tscn")

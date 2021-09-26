@@ -21,6 +21,7 @@ func detect(object):
 	for body in bodies:
 		if body == object:
 			self.fly(self.player.global_position)
+			$Timer.start()
 			
 	pass
 
@@ -29,3 +30,8 @@ func fly(to: Vector2):
 	var radial = self.position.direction_to(to)
 	self.velocity = Vector2(-radial.y ,radial.x) * speed
 	pass
+
+
+func _on_Timer_timeout():
+	self.state = State.IDLING
+	yield(get_tree().create_timer(1.0), "timeout")
