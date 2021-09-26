@@ -41,7 +41,7 @@ func _on_Restart_pressed():
 	GAME.reload()
 	yield(get_tree().create_timer(1.0), "timeout")
 	##mandar pro primeiro mapa
-	get_tree().reload_current_scene()
+	get_tree().change_scene("res://Maps/Map1.tscn")
 
 
 func _on_Quit_pressed():

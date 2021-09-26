@@ -21,12 +21,13 @@ _global_script_class_icons={
 [application]
 
 config/name="Crossover_Jam_2021"
-run/main_scene="res://Maps/Map1.tscn"
+run/main_scene="res://MainMenu.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
 GAME="*res://Scripts/GAME.gd"
+Music="*res://Music.tscn"
 
 [display]
 
