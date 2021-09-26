@@ -35,6 +35,7 @@ func _ready():
 	elif self.name == "Map11":
 		$Player.position = GAME.map11
 		
+
 		
 ###################################################
 #     ~ It ain't much, but it's honest work ~     #

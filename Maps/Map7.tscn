@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://tiles/buildings/buildings.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://map_objects/powerups.tscn" type="PackedScene" id=5]
 [ext_resource path="res://tiles/asphalt.tscn" type="PackedScene" id=6]
 [ext_resource path="res://tiles/table.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/UI.tscn" type="PackedScene" id=8]
 
 [node name="Map7" type="Node2D"]
 script = ExtResource( 4 )
@@ -34,3 +35,5 @@ position = Vector2( 430, 120 )
 [node name="powerups" parent="." instance=ExtResource( 5 )]
 position = Vector2( 728.743, 525.834 )
 Updates = 3
+
+[node name="UI" parent="." instance=ExtResource( 8 )]

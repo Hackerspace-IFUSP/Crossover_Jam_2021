@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://tiles/water/water.tscn" type="PackedScene" id=1]
 [ext_resource path="res://tiles/buildings/buildings.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://tiles/ground.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/spawner.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/WantWant.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/UI.tscn" type="PackedScene" id=10]
 
 [node name="Map3" type="Node2D"]
 script = ExtResource( 5 )
@@ -200,3 +201,5 @@ position = Vector2( 1208, 1304 )
 collision_layer = 2
 collision_mask = 1
 speed = 10.0
+
+[node name="UI" parent="." instance=ExtResource( 10 )]

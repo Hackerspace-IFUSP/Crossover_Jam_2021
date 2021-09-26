@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://tiles/buildings/buildings.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://map_objects/hard_wall.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Scenes/Enemy.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Scenes/WantWant.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Scenes/UI.tscn" type="PackedScene" id=15]
 
 [node name="Map6" type="Node2D"]
 script = ExtResource( 4 )
@@ -223,3 +224,5 @@ state = 2
 
 [node name="WantWant" parent="." instance=ExtResource( 14 )]
 position = Vector2( 920, -573.884 )
+
+[node name="UI" parent="." instance=ExtResource( 15 )]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://tiles/water/water.tscn" type="PackedScene" id=1]
 [ext_resource path="res://tiles/buildings/buildings.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://tiles/ground.tscn" type="PackedScene" id=6]
 [ext_resource path="res://map_objects/Tree.tscn" type="PackedScene" id=7]
 [ext_resource path="res://map_objects/hard_wall.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/UI.tscn" type="PackedScene" id=9]
 
 [node name="Map10" type="Node2D"]
 script = ExtResource( 5 )
@@ -152,3 +153,5 @@ position = Vector2( 906.203, 623.628 )
 
 [node name="Tree8" parent="trees" instance=ExtResource( 7 )]
 position = Vector2( 799.927, 202.334 )
+
+[node name="UI" parent="." instance=ExtResource( 9 )]
