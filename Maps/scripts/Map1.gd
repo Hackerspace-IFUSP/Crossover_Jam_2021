@@ -7,9 +7,11 @@ func _ready():
 		$Player.position = GAME.map1
 	elif self.name == "Map2":
 		$Player.position = GAME.map2
+		GAME.map3 = Vector2(128,448)
 		GAME.map5 = Vector2(1235,135) 
 	elif self.name == "Map3":
 		GAME.map2 = Vector2(1300,1750)
+		GAME.map4 = Vector2(825,125)
 		$Player.position = GAME.map3 
 	elif self.name == "Map4":
 		GAME.map5 = Vector2(1320,500)

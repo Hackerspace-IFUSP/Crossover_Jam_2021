@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Tree2.png-39e5c2200e7ea689420164e00db7aac5.stex"
+path="res://.import/robot_assets_Jaspior.png-29931d48e1e4b09fb3be557f149b8743.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Tree2.png"
-dest_files=[ "res://.import/Tree2.png-39e5c2200e7ea689420164e00db7aac5.stex" ]
+source_file="res://sprites/robot_assets_Jaspior.png"
+dest_files=[ "res://.import/robot_assets_Jaspior.png-29931d48e1e4b09fb3be557f149b8743.stex" ]
 
 [params]
 

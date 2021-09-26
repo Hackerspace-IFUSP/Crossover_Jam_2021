@@ -128,25 +128,30 @@ func upgrades():
 	if boat == true:
 		set_collision_mask_bit( 3 , false )
 		GAME.boat = true
+		$boat/boat.show()
 		boat = false
 		
 	elif patch == true:
 		set_collision_mask_bit( 4 , false )
 		GAME.patch = true
+		$patch/patch.show()
 		patch = false
 
 	elif dash == true:
 		GAME.dash = true
 		dash_status = true ##faz ativar a função do dash pela primeira vez, não precis fazer mais nada 
+		$dash/dash.show()
 		dash = false
 		
 	elif laser == true and laser_count == true:
 		GAME.laser = true 
+		$laser/Laser.show()
 		laser_count = false
 
 	elif bomb == true and bomb_status == true:
 		GAME.bomb = true
 		bomb_status = true
+		$bomb/bomb.show()
 		bomb_count = false 
 		
 		

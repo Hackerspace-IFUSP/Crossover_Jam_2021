@@ -79,7 +79,12 @@ position = Vector2( 57.0647, 362.345 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 830, 130 )
+collision_mask = 23
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2( -2.11893, 0 )
 current = true
+limit_left = 0
+limit_top = 0
+limit_right = 1247
+limit_bottom = 1625

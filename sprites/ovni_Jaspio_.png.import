@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/jogo_do_robo.png-4b8bbb948cc96d3df01f112758dc2106.stex"
+path="res://.import/ovni_Jaspio_.png-c4136c573ef67ff439393082827fc6b1.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/jogo_do_robo.png"
-dest_files=[ "res://.import/jogo_do_robo.png-4b8bbb948cc96d3df01f112758dc2106.stex" ]
+source_file="res://sprites/ovni_Jaspio_.png"
+dest_files=[ "res://.import/ovni_Jaspio_.png-c4136c573ef67ff439393082827fc6b1.stex" ]
 
 [params]
 

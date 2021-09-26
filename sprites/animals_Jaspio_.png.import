@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Tree1.png-3969cc4f1d0c5285cf454a98d430d605.stex"
+path="res://.import/animals_Jaspio_.png-148bd7c57cb1ecb3e598f3b9238cd1f3.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://sprites/Tree1.png"
-dest_files=[ "res://.import/Tree1.png-3969cc4f1d0c5285cf454a98d430d605.stex" ]
+source_file="res://sprites/animals_Jaspio_.png"
+dest_files=[ "res://.import/animals_Jaspio_.png-148bd7c57cb1ecb3e598f3b9238cd1f3.stex" ]
 
 [params]
 

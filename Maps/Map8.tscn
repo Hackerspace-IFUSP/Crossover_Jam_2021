@@ -22,6 +22,10 @@ position = Vector2( 1300, 1700 )
 [node name="Camera2D" type="Camera2D" parent="Player"]
 position = Vector2( -2, 0 )
 current = true
+limit_left = 48
+limit_top = 0
+limit_right = 1440
+limit_bottom = 1920
 
 [node name="Teleporter" parent="." instance=ExtResource( 4 )]
 position = Vector2( 1176, -40 )
@@ -31,7 +35,7 @@ spawn_position = Vector2( 1150, 64 )
 
 [node name="Teleporter2" parent="." instance=ExtResource( 4 )]
 position = Vector2( 1464, 1704 )
-choose_map = 3
+choose_map = 4
 map = 7
 spawn_position = Vector2( 1300, 1700 )
 
