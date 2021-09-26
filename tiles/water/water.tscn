@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://tiles/water/tileset_water.tres" type="TileSet" id=1]
+[ext_resource path="res://tiles/water2/tileset_water2.tres" type="TileSet" id=1]
 
 [node name="water" type="TileMap"]
 tile_set = ExtResource( 1 )
