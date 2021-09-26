@@ -19,8 +19,30 @@ func _ready():
 func _on_OpenMenu_pressed():
 	if not opened:
 		animation.play("Open")
+		get_tree().paused = true
 		
 	if opened:
 		animation.play("Close")
+		yield( animation , "animation_finished" )
+		get_tree().paused = false
 	
 	opened = !opened
+
+
+func _on_Push_toggled(button_pressed):
+	if $UI/ChangeMenu/Push.pressed:
+		$AnimationPlayer.play("MenuOpen")
+	if !$UI/ChangeMenu/Push.pressed:
+		$AnimationPlayer.play("MenuClose")
+
+
+func _on_Restart_pressed():
+	get_tree().paused = false
+	GAME.reload()
+	yield(get_tree().create_timer(1.0), "timeout")
+	##mandar pro primeiro mapa
+	get_tree().reload_current_scene()
+
+
+func _on_Quit_pressed():
+	get_tree().quit()

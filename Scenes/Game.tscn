@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://map_objects/powerups.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Temporários/tringle_dark_green.png" type="Texture" id=6]
 [ext_resource path="res://Temporários/tringle_cyan.png" type="Texture" id=7]
 [ext_resource path="res://Temporários/tringle_blue.png" type="Texture" id=8]
+[ext_resource path="res://Scenes/UI.tscn" type="PackedScene" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 21.1299, 20.8621 )
@@ -215,6 +216,8 @@ texture = ExtResource( 4 )
 [node name="Sprite5" type="Sprite" parent="powerups5"]
 scale = Vector2( 0.375, 0.375 )
 texture = ExtResource( 5 )
+
+[node name="UI" parent="." instance=ExtResource( 9 )]
 
 [connection signal="body_shape_entered" from="testport" to="testport" method="_on_testport_body_shape_entered"]
 [connection signal="body_entered" from="powerups2" to="powerups2" method="_on_powerups_body_entered"]
