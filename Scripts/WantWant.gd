@@ -21,6 +21,7 @@ func detect(object):
 	for body in bodies:
 		if body == object:
 			self.fly(self.player.global_position)
+			
 	pass
 
 func fly(to: Vector2):

@@ -88,10 +88,15 @@ texture = ExtResource( 2 )
 [node name="shape" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 
-[node name="explosion_zone" type="Area2D" parent="."]
+[node name="explosion_zone" type="Area2D" parent="." groups=[
+"bomb",
+]]
+collision_layer = 4
+collision_mask = 0
 
 [node name="shape" type="CollisionShape2D" parent="explosion_zone"]
 shape = SubResource( 2 )
+disabled = true
 
 [node name="anim" type="AnimationPlayer" parent="."]
 anims/event = SubResource( 3 )

@@ -103,8 +103,10 @@ func move(val):
 func dash():
 	if Input.is_action_just_pressed("dash") and dash_status == true:
 		set_collision_mask_bit( 1 , false )
+		set_collision_mask_bit( 6, false )
 		move_and_collide( velocity * dash_multiplier )
 		dash_status = false
+		modulate.a = .5
 		$invincibility_timer.start()
 		$dash_timer.start()
 
@@ -144,6 +146,7 @@ func upgrades():
 		dash = false
 		
 	elif laser == true and laser_count == true:
+		$light.show()
 		GAME.laser = true 
 		$laser/Laser.show()
 		laser_count = false
@@ -166,11 +169,23 @@ func _on_dash_timer_timeout():
 
 func _on_invincibility_timer_timeout():
 	set_collision_mask_bit( 1 , true )
+	set_collision_mask_bit( 6, true )
+	modulate.a = 1
 
 
 func _on_bomb_timer_timeout():
 	bomb_status = true 
 
+
+
+func _on_hurtbox_area_entered(area):
+	if area.is_in_group("enemy"):
+		get_tree().reload_current_scene()
+
+
+func _on_hurtbox_body_entered(body):
+	if body.is_in_group("enemy"):
+		get_tree().reload_current_scene()
 
 
 ###
@@ -199,5 +214,6 @@ func _on_bomb_timer_timeout():
 ###################################################
 #               ~ KeichiTS - 2021 ~               #
 ###################################################
+
 
 

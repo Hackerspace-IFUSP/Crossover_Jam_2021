@@ -24,6 +24,8 @@ onready var player = get_parent().get_node('Player')
 
 
 func _ready():
+	if speed > 0:
+		$Sprite.rotation = PI
 	if self.state == State.PATROLLING: self.patrol()
 	pass
 

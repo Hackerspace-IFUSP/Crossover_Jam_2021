@@ -222,6 +222,9 @@ texture = ExtResource( 5 )
 
 [node name="UI" parent="." instance=ExtResource( 9 )]
 
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color( 0, 0, 0, 1 )
+
 [connection signal="body_shape_entered" from="testport" to="testport" method="_on_testport_body_shape_entered"]
 [connection signal="body_entered" from="powerups2" to="powerups2" method="_on_powerups_body_entered"]
 [connection signal="body_entered" from="powerups3" to="powerups3" method="_on_powerups_body_entered"]

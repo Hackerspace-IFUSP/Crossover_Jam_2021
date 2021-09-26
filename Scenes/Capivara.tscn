@@ -6,8 +6,11 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 42.7824, 19.6637 )
 
-[node name="Capivara" type="KinematicBody2D"]
-collision_mask = 3
+[node name="Capivara" type="KinematicBody2D" groups=[
+"enemy",
+]]
+rotation = 1.5708
+collision_layer = 2
 script = ExtResource( 2 )
 speed = 500.0
 velocity = Vector2( 0, 500 )

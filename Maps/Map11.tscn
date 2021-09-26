@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://tiles/acid/acid.tscn" type="PackedScene" id=1]
 [ext_resource path="res://tiles/water/water.tscn" type="PackedScene" id=2]
@@ -9,6 +9,8 @@
 [ext_resource path="res://tiles/asphalt.tscn" type="PackedScene" id=7]
 [ext_resource path="res://tiles/ground.tscn" type="PackedScene" id=8]
 [ext_resource path="res://sprites/ovni_Jaspio_.png" type="Texture" id=9]
+[ext_resource path="res://map_objects/road_sign.tscn" type="PackedScene" id=10]
+[ext_resource path="res://map_objects/spiderweb.tscn" type="PackedScene" id=11]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 189.608
@@ -41,7 +43,6 @@ spawn_position = Vector2( 1050, 1800 )
 
 [node name="Player" parent="." instance=ExtResource( 4 )]
 position = Vector2( 1050, 1850 )
-collision_mask = 0
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 current = true
@@ -50,11 +51,291 @@ limit_top = 80
 limit_right = 1965
 limit_bottom = 1965
 
+[node name="signs" type="Node2D" parent="."]
+
+[node name="road_sign" parent="signs" instance=ExtResource( 10 )]
+position = Vector2( 128, 1256 )
+
+[node name="road_sign2" parent="signs" instance=ExtResource( 10 )]
+position = Vector2( 248, 1256 )
+
+[node name="road_sign3" parent="signs" instance=ExtResource( 10 )]
+position = Vector2( 368, 1256 )
+
+[node name="road_sign4" parent="signs" instance=ExtResource( 10 )]
+position = Vector2( 488, 1256 )
+
+[node name="road_sign5" parent="signs" instance=ExtResource( 10 )]
+position = Vector2( 608, 1256 )
+
+[node name="road_sign6" parent="signs" instance=ExtResource( 10 )]
+position = Vector2( 728, 1256 )
+
+[node name="road_sign7" parent="signs" instance=ExtResource( 10 )]
+position = Vector2( 848, 1256 )
+
+[node name="road_sign8" parent="signs" instance=ExtResource( 10 )]
+position = Vector2( 968, 1256 )
+
+[node name="road_sign9" parent="signs" instance=ExtResource( 10 )]
+position = Vector2( 1088, 1256 )
+
+[node name="road_sign10" parent="signs" instance=ExtResource( 10 )]
+position = Vector2( 1208, 1256 )
+
+[node name="road_sign11" parent="signs" instance=ExtResource( 10 )]
+position = Vector2( 1328, 1256 )
+
+[node name="road_sign12" parent="signs" instance=ExtResource( 10 )]
+position = Vector2( 1448, 1256 )
+
+[node name="road_sign13" parent="signs" instance=ExtResource( 10 )]
+position = Vector2( 1568, 1256 )
+
+[node name="road_sign14" parent="signs" instance=ExtResource( 10 )]
+position = Vector2( 1688, 1256 )
+
+[node name="road_sign15" parent="signs" instance=ExtResource( 10 )]
+position = Vector2( 1808, 1256 )
+
+[node name="road_sign16" parent="signs" instance=ExtResource( 10 )]
+position = Vector2( 1928, 1256 )
+
+[node name="road_sign17" parent="signs" instance=ExtResource( 10 )]
+position = Vector2( 80, 1200 )
+
+[node name="road_sign18" parent="signs" instance=ExtResource( 10 )]
+position = Vector2( 200, 1200 )
+
+[node name="road_sign19" parent="signs" instance=ExtResource( 10 )]
+position = Vector2( 320, 1200 )
+
+[node name="road_sign20" parent="signs" instance=ExtResource( 10 )]
+position = Vector2( 440, 1200 )
+
+[node name="road_sign21" parent="signs" instance=ExtResource( 10 )]
+position = Vector2( 560, 1200 )
+
+[node name="road_sign22" parent="signs" instance=ExtResource( 10 )]
+position = Vector2( 680, 1200 )
+
+[node name="road_sign23" parent="signs" instance=ExtResource( 10 )]
+position = Vector2( 800, 1200 )
+
+[node name="road_sign24" parent="signs" instance=ExtResource( 10 )]
+position = Vector2( 920, 1200 )
+
+[node name="road_sign25" parent="signs" instance=ExtResource( 10 )]
+position = Vector2( 1040, 1200 )
+
+[node name="road_sign26" parent="signs" instance=ExtResource( 10 )]
+position = Vector2( 1160, 1200 )
+
+[node name="road_sign27" parent="signs" instance=ExtResource( 10 )]
+position = Vector2( 1280, 1200 )
+
+[node name="road_sign28" parent="signs" instance=ExtResource( 10 )]
+position = Vector2( 1400, 1200 )
+
+[node name="road_sign29" parent="signs" instance=ExtResource( 10 )]
+position = Vector2( 1520, 1200 )
+
+[node name="road_sign30" parent="signs" instance=ExtResource( 10 )]
+position = Vector2( 1640, 1200 )
+
+[node name="road_sign31" parent="signs" instance=ExtResource( 10 )]
+position = Vector2( 1760, 1200 )
+
+[node name="road_sign32" parent="signs" instance=ExtResource( 10 )]
+position = Vector2( 1880, 1200 )
+
 [node name="bieneos" type="StaticBody2D" parent="."]
-position = Vector2( 1007, 300 )
+position = Vector2( 1007, 171 )
 
 [node name="sprite" type="Sprite" parent="bieneos"]
 texture = ExtResource( 9 )
 
 [node name="shape" type="CollisionShape2D" parent="bieneos"]
 shape = SubResource( 1 )
+
+[node name="spiderwebs" type="Node2D" parent="."]
+
+[node name="spiderweb" parent="spiderwebs" instance=ExtResource( 11 )]
+position = Vector2( 88, 488 )
+
+[node name="spiderweb2" parent="spiderwebs" instance=ExtResource( 11 )]
+position = Vector2( 152, 488 )
+
+[node name="spiderweb3" parent="spiderwebs" instance=ExtResource( 11 )]
+position = Vector2( 216, 488 )
+
+[node name="spiderweb4" parent="spiderwebs" instance=ExtResource( 11 )]
+position = Vector2( 280, 488 )
+
+[node name="spiderweb5" parent="spiderwebs" instance=ExtResource( 11 )]
+position = Vector2( 344, 488 )
+
+[node name="spiderweb6" parent="spiderwebs" instance=ExtResource( 11 )]
+position = Vector2( 408, 488 )
+
+[node name="spiderweb7" parent="spiderwebs" instance=ExtResource( 11 )]
+position = Vector2( 472, 488 )
+
+[node name="spiderweb8" parent="spiderwebs" instance=ExtResource( 11 )]
+position = Vector2( 536, 488 )
+
+[node name="spiderweb9" parent="spiderwebs" instance=ExtResource( 11 )]
+position = Vector2( 600, 488 )
+
+[node name="spiderweb10" parent="spiderwebs" instance=ExtResource( 11 )]
+position = Vector2( 664, 488 )
+
+[node name="spiderweb11" parent="spiderwebs" instance=ExtResource( 11 )]
+position = Vector2( 728, 488 )
+
+[node name="spiderweb12" parent="spiderwebs" instance=ExtResource( 11 )]
+position = Vector2( 792, 488 )
+
+[node name="spiderweb13" parent="spiderwebs" instance=ExtResource( 11 )]
+position = Vector2( 856, 488 )
+
+[node name="spiderweb14" parent="spiderwebs" instance=ExtResource( 11 )]
+position = Vector2( 920, 488 )
+
+[node name="spiderweb15" parent="spiderwebs" instance=ExtResource( 11 )]
+position = Vector2( 984, 488 )
+
+[node name="spiderweb16" parent="spiderwebs" instance=ExtResource( 11 )]
+position = Vector2( 1048, 488 )
+
+[node name="spiderweb17" parent="spiderwebs" instance=ExtResource( 11 )]
+position = Vector2( 1112, 488 )
+
+[node name="spiderweb18" parent="spiderwebs" instance=ExtResource( 11 )]
+position = Vector2( 1176, 488 )
+
+[node name="spiderweb19" parent="spiderwebs" instance=ExtResource( 11 )]
+position = Vector2( 1240, 488 )
+
+[node name="spiderweb20" parent="spiderwebs" instance=ExtResource( 11 )]
+position = Vector2( 1304, 488 )
+
+[node name="spiderweb21" parent="spiderwebs" instance=ExtResource( 11 )]
+position = Vector2( 1368, 488 )
+
+[node name="spiderweb22" parent="spiderwebs" instance=ExtResource( 11 )]
+position = Vector2( 1432, 488 )
+
+[node name="spiderweb23" parent="spiderwebs" instance=ExtResource( 11 )]
+position = Vector2( 1496, 488 )
+
+[node name="spiderweb24" parent="spiderwebs" instance=ExtResource( 11 )]
+position = Vector2( 1560, 488 )
+
+[node name="spiderweb25" parent="spiderwebs" instance=ExtResource( 11 )]
+position = Vector2( 1624, 488 )
+
+[node name="spiderweb26" parent="spiderwebs" instance=ExtResource( 11 )]
+position = Vector2( 1688, 488 )
+
+[node name="spiderweb27" parent="spiderwebs" instance=ExtResource( 11 )]
+position = Vector2( 1752, 488 )
+
+[node name="spiderweb28" parent="spiderwebs" instance=ExtResource( 11 )]
+position = Vector2( 1816, 488 )
+
+[node name="spiderweb29" parent="spiderwebs" instance=ExtResource( 11 )]
+position = Vector2( 1880, 488 )
+
+[node name="spiderweb30" parent="spiderwebs" instance=ExtResource( 11 )]
+position = Vector2( 1944, 488 )
+
+[node name="spiderweb31" parent="spiderwebs" instance=ExtResource( 11 )]
+position = Vector2( 80, 552 )
+
+[node name="spiderweb32" parent="spiderwebs" instance=ExtResource( 11 )]
+position = Vector2( 144, 552 )
+
+[node name="spiderweb33" parent="spiderwebs" instance=ExtResource( 11 )]
+position = Vector2( 208, 552 )
+
+[node name="spiderweb34" parent="spiderwebs" instance=ExtResource( 11 )]
+position = Vector2( 272, 552 )
+
+[node name="spiderweb35" parent="spiderwebs" instance=ExtResource( 11 )]
+position = Vector2( 336, 552 )
+
+[node name="spiderweb36" parent="spiderwebs" instance=ExtResource( 11 )]
+position = Vector2( 400, 552 )
+
+[node name="spiderweb37" parent="spiderwebs" instance=ExtResource( 11 )]
+position = Vector2( 464, 552 )
+
+[node name="spiderweb38" parent="spiderwebs" instance=ExtResource( 11 )]
+position = Vector2( 528, 552 )
+
+[node name="spiderweb39" parent="spiderwebs" instance=ExtResource( 11 )]
+position = Vector2( 592, 552 )
+
+[node name="spiderweb40" parent="spiderwebs" instance=ExtResource( 11 )]
+position = Vector2( 656, 552 )
+
+[node name="spiderweb41" parent="spiderwebs" instance=ExtResource( 11 )]
+position = Vector2( 720, 552 )
+
+[node name="spiderweb42" parent="spiderwebs" instance=ExtResource( 11 )]
+position = Vector2( 784, 552 )
+
+[node name="spiderweb43" parent="spiderwebs" instance=ExtResource( 11 )]
+position = Vector2( 848, 552 )
+
+[node name="spiderweb44" parent="spiderwebs" instance=ExtResource( 11 )]
+position = Vector2( 912, 552 )
+
+[node name="spiderweb45" parent="spiderwebs" instance=ExtResource( 11 )]
+position = Vector2( 976, 552 )
+
+[node name="spiderweb46" parent="spiderwebs" instance=ExtResource( 11 )]
+position = Vector2( 1040, 552 )
+
+[node name="spiderweb47" parent="spiderwebs" instance=ExtResource( 11 )]
+position = Vector2( 1104, 552 )
+
+[node name="spiderweb48" parent="spiderwebs" instance=ExtResource( 11 )]
+position = Vector2( 1168, 552 )
+
+[node name="spiderweb49" parent="spiderwebs" instance=ExtResource( 11 )]
+position = Vector2( 1232, 552 )
+
+[node name="spiderweb50" parent="spiderwebs" instance=ExtResource( 11 )]
+position = Vector2( 1296, 552 )
+
+[node name="spiderweb51" parent="spiderwebs" instance=ExtResource( 11 )]
+position = Vector2( 1360, 552 )
+
+[node name="spiderweb52" parent="spiderwebs" instance=ExtResource( 11 )]
+position = Vector2( 1424, 552 )
+
+[node name="spiderweb53" parent="spiderwebs" instance=ExtResource( 11 )]
+position = Vector2( 1488, 552 )
+
+[node name="spiderweb54" parent="spiderwebs" instance=ExtResource( 11 )]
+position = Vector2( 1552, 552 )
+
+[node name="spiderweb55" parent="spiderwebs" instance=ExtResource( 11 )]
+position = Vector2( 1616, 552 )
+
+[node name="spiderweb56" parent="spiderwebs" instance=ExtResource( 11 )]
+position = Vector2( 1680, 552 )
+
+[node name="spiderweb57" parent="spiderwebs" instance=ExtResource( 11 )]
+position = Vector2( 1744, 552 )
+
+[node name="spiderweb58" parent="spiderwebs" instance=ExtResource( 11 )]
+position = Vector2( 1808, 552 )
+
+[node name="spiderweb59" parent="spiderwebs" instance=ExtResource( 11 )]
+position = Vector2( 1872, 552 )
+
+[node name="spiderweb60" parent="spiderwebs" instance=ExtResource( 11 )]
+position = Vector2( 1936, 552 )

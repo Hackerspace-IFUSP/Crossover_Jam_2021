@@ -21,7 +21,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Crossover_Jam_2021"
-run/main_scene="res://Scenes/Game.tscn"
+run/main_scene="res://Maps/Map1.tscn"
 config/icon="res://icon.png"
 
 [autoload]
@@ -88,7 +88,7 @@ set_bomb={
 2d_physics/layer_4="Lake"
 2d_physics/layer_5="Patched"
 2d_physics/layer_6="laser"
-2d_physics/layer_7="Acid"
+2d_physics/layer_7="signs"
 
 [physics]
 

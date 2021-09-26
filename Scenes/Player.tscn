@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Temporários/Body.png" type="Texture" id=1]
+[ext_resource path="res://sprites/Light.png" type="Texture" id=2]
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=4]
 [ext_resource path="res://sprites/robot_assets_Jaspior.png" type="Texture" id=5]
 
@@ -40,7 +41,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 0.2 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 1, 1 ), Vector2( 10, 1 ) ]
+"values": [ Vector2( 1e-05, 1e-05 ), Vector2( 10, 1 ) ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("beam:position")
@@ -53,6 +54,18 @@ tracks/1/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Vector2( 30, 0 ), Vector2( 220, 0 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("beam/shape:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
 }
 
 [sub_resource type="Animation" id=7]
@@ -79,12 +92,33 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 0.3 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 10, 1 ), Vector2( 1e-05, 1 ) ]
+"values": [ Vector2( 10, 1 ), Vector2( 1e-05, 1e-05 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("beam/shape:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0.3 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
 }
 
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 34.6442, 34.4288 )
+
 [node name="Player" type="KinematicBody2D"]
-collision_mask = 31
+collision_mask = 95
 script = ExtResource( 4 )
+
+[node name="light" type="Light2D" parent="."]
+visible = false
+scale = Vector2( 5, 5 )
+texture = ExtResource( 2 )
+mode = 2
 
 [node name="boat" type="Node2D" parent="."]
 
@@ -114,11 +148,13 @@ shape = SubResource( 4 )
 [node name="laser" type="Node2D" parent="."]
 position = Vector2( 30.005, 0 )
 
-[node name="beam" type="Area2D" parent="laser"]
+[node name="beam" type="Area2D" parent="laser" groups=[
+"laser",
+]]
 position = Vector2( 30, 0 )
-scale = Vector2( 1e-05, 1 )
+scale = Vector2( 1e-05, 1e-05 )
 collision_layer = 32
-collision_mask = 0
+collision_mask = 4
 
 [node name="ColorRect" type="ColorRect" parent="laser/beam"]
 anchor_left = 0.5
@@ -136,8 +172,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="laser/beam"]
+[node name="shape" type="CollisionShape2D" parent="laser/beam"]
 shape = SubResource( 5 )
+disabled = true
 
 [node name="Laser" type="Sprite" parent="laser"]
 visible = false
@@ -186,10 +223,11 @@ vframes = 7
 frame = 11
 
 [node name="dash_timer" type="Timer" parent="."]
+wait_time = 3.0
 one_shot = true
 
 [node name="invincibility_timer" type="Timer" parent="."]
-wait_time = 0.4
+wait_time = 2.0
 one_shot = true
 
 [node name="bomb_timer" type="Timer" parent="."]
@@ -199,6 +237,15 @@ one_shot = true
 [node name="bomb_position" type="Position2D" parent="."]
 position = Vector2( -60, 0 )
 
+[node name="hurtbox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+
+[node name="shape" type="CollisionShape2D" parent="hurtbox"]
+shape = SubResource( 8 )
+
 [connection signal="timeout" from="dash_timer" to="." method="_on_dash_timer_timeout"]
 [connection signal="timeout" from="invincibility_timer" to="." method="_on_invincibility_timer_timeout"]
 [connection signal="timeout" from="bomb_timer" to="." method="_on_bomb_timer_timeout"]
+[connection signal="area_entered" from="hurtbox" to="." method="_on_hurtbox_area_entered"]
+[connection signal="body_entered" from="hurtbox" to="." method="_on_hurtbox_body_entered"]
