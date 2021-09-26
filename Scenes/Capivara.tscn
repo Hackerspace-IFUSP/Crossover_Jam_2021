@@ -11,6 +11,7 @@ extents = Vector2( 42.7824, 19.6637 )
 ]]
 rotation = 1.5708
 collision_layer = 2
+collision_mask = 0
 script = ExtResource( 2 )
 speed = 500.0
 velocity = Vector2( 0, 500 )

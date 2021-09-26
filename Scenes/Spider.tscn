@@ -9,8 +9,11 @@ radius = 24.0
 [sub_resource type="CircleShape2D" id=2]
 radius = 256.0
 
-[node name="Spider" type="KinematicBody2D"]
-collision_mask = 3
+[node name="Spider" type="KinematicBody2D" groups=[
+"enemy",
+]]
+collision_layer = 2
+collision_mask = 0
 script = ExtResource( 3 )
 state = 0
 jumpForce = 4.0

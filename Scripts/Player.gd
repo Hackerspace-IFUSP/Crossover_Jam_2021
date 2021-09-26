@@ -104,6 +104,7 @@ func dash():
 	if Input.is_action_just_pressed("dash") and dash_status == true:
 		set_collision_mask_bit( 1 , false )
 		set_collision_mask_bit( 6, false )
+		$hurtbox.set_collision_mask_bit( 1 , false)
 		move_and_collide( velocity * dash_multiplier )
 		dash_status = false
 		modulate.a = .5
@@ -170,6 +171,7 @@ func _on_dash_timer_timeout():
 func _on_invincibility_timer_timeout():
 	set_collision_mask_bit( 1 , true )
 	set_collision_mask_bit( 6, true )
+	$hurtbox.set_collision_mask_bit( 1 , true)
 	modulate.a = 1
 
 
